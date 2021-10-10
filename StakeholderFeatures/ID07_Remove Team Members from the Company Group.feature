@@ -25,7 +25,7 @@ Feature: ID07_Remove Team Members from the Company Group
 
     Scenario Outline: (Alternative Flow) Remove an existing Team Member from the Team Member Profile
         When the stakeholder navigates to the profile of the Team Member with name <name>
-        And the stakeholder clicks on “Remove from Company” button
+        And the stakeholder chooses to remove the Team Member with name <name>
         And confirms the removal
         Then the Team Member with name <name> is removed from the Company Group
 
@@ -38,7 +38,7 @@ Feature: ID07_Remove Team Members from the Company Group
 
     Scenario Outline: (Error Flow) Remove an existing Team Member from the Team Member Profile without confirmation
         When the stakeholder navigates to the profile of the Team Member with name <name>
-        And the stakeholder clicks on “Remove from Company” button
+        And the stakeholder chooses to remove the Team Member with name <name>
         And skips confirmation of the removal
         Then the system throws an “Removal is not confirmed” error
         And the Team Member with name <name> is still in the Company Group

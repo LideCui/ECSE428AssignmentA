@@ -13,9 +13,8 @@ Feature: ID03_Delete a Company Croup
 
     Scenario Outline: (Normal Flow) Deleting an existing Company Group with confirmation
         When the stakeholder navigates to the settings of the Company Group with name <name> and key <key>
-        And the stakeholder clicks on the “Delete” button
-        And confirms the delete action
-        And clicks on the “Delete Group” button
+        And the stakeholder delete the group
+        And the stakeholde confirms deletion of the group
         Then the Company Group is deleted
 
         Examples:
@@ -24,7 +23,7 @@ Feature: ID03_Delete a Company Croup
 
     Scenario Outline: (Alternative Flow) Deleting an existing Company Group without confirmation
         When the stakeholder navigates to the settings of the Company Group with name <name> and key <key>
-        And the stakeholder clicks on the “Delete” button
-        And clicks on the “Delete Group” button
+        And the stakeholder delete the group
+        And the stakeholde does not confirm deletion of the group
         Then the system pops Delete not confirmed window
         And the Company Group is not deleted

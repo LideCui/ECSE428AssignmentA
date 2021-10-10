@@ -26,7 +26,7 @@ Feature: ID06_Remove Project Leaders from the Company Group
 
     Scenario Outline: (Alternative Flow) Remove an existing Project Leader from the Project Leader Profile
         When the stakeholder navigates to the profile of the Project Leader with name <name>
-        And the stakeholder clicks on “Remove from Company” button
+        And the stakeholder chooses to remove the Project Leader with name <name>
         And confirms the removal
         Then the Project Leader with name <name> is removed from the Company Group
 
@@ -39,7 +39,7 @@ Feature: ID06_Remove Project Leaders from the Company Group
 
     Scenario Outline Outline: (Error Flow) Remove an existing Project Leader from the Project Leader Profile without confirmation
         When the stakeholder navigates to the profile of the Project Leader with name <name>
-        And the stakeholder clicks on “Remove from Company” button
+        And the stakeholder chooses to remove the Project Leader with name <name>
         And skips confirmation of the removal
         Then the system throws an “Removal is not confirmed” error
         And the Project Leader with name <name> is still in the Company Group
