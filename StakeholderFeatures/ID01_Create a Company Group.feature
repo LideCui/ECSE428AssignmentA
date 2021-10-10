@@ -9,13 +9,13 @@ Feature: ID01_Create a Company Group
     Background:
         Given the stakeholder is logged in
 
-    Scenario: (Normal Flow) Creating a Company Group with a name and a key
+    Scenario Outline: (Normal Flow) Creating a Company Group with a name and a key
         When the stakeholder clicks on “Create a Company Group” button
         And the stakeholder enters name <name> and upload a key <key>
         Then the stakeholder clicks on “Create” button
         And a new company group with name <name> and key <key> is created
 
-    Scenario: (Error Flow) Creating a Company Group without a name or a key
+    Scenario Outline: (Error Flow) Creating a Company Group without a name or a key
         When the stakeholder clicks on “Create a Company Group” button
         And the stakeholder clicks on “Create” button
         Then the system throws an “Company cannot be created without a name or a key” error

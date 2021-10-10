@@ -16,13 +16,13 @@ Feature: ID09_Approve a Project in Preparing Phase
             | project1 | Preparing1      |
             | project2 | Preparing2      |
 
-    Scenario: (Normal Flow) Approve an existing Project in an existing Preparing phase which is not approved by the Stakeholder
+    Scenario Outline: (Normal Flow) Approve an existing Project in an existing Preparing phase which is not approved by the Stakeholder
         When the stakeholder chooses the list of the projects in Preparing phase with name <name>
         And the stakeholder approves the project with name <name>
         Then the project is approved
         And the number of approvals is increased by one
 
-    Scenario: (Alternative Flow) Approve an existing Project in an existing Preparing Phase which is rejected by the Stakeholder
+    Scenario Outline: (Alternative Flow) Approve an existing Project in an existing Preparing Phase which is rejected by the Stakeholder
         When the stakeholder chooses the list of the projects in Preparing phase with name <name>
         And the stakeholder approves the projects with name <name> which was previously rejected by the stakeholder
         Then the project is approved

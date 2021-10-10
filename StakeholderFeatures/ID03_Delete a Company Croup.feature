@@ -9,17 +9,20 @@ Feature: ID03_Delete a Company Croup
     Background:
         Given that the stakeholder is logged in
         And that the following Company Groups exist:
-            | name | key |
-            | Test | TES |
 
-    Scenario: (Normal Flow) Deleting an existing Company Group with confirmation
+
+    Scenario Outline: (Normal Flow) Deleting an existing Company Group with confirmation
         When the stakeholder navigates to the settings of the Company Group with name <name> and key <key>
         And the stakeholder clicks on the “Delete” button
         And confirms the delete action
         And clicks on the “Delete Group” button
         Then the Company Group is deleted
 
-    Scenario: (Alternative Flow) Deleting an existing Company Group without confirmation
+        Examples:
+            | name | key |  state |
+            | Test | TES | deleted |
+
+    Scenario Outline: (Alternative Flow) Deleting an existing Company Group without confirmation
         When the stakeholder navigates to the settings of the Company Group with name <name> and key <key>
         And the stakeholder clicks on the “Delete” button
         And clicks on the “Delete Group” button
