@@ -2,7 +2,7 @@ Feature: ID03_Delete a Company Croup
 
     User Stories:
     As a Stakeholder
-    I want to be able to delete a你existing Company Group
+    I want to be able to delete an existing Company Group
     So that I can remove any unused Company Groups
 
 
