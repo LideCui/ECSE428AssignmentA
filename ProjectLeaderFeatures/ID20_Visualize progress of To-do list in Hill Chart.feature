@@ -1,5 +1,6 @@
 Feature: ID20_Visualize progress of To-do list in Hill Chart
 	
+	User Stories:	
 	As a Project Leader
 	I want to be able to see the progress of To-do tasks in Hill Chart 
 	So that I can track the progress of the project.
@@ -15,5 +16,5 @@ Feature: ID20_Visualize progress of To-do list in Hill Chart
 	
 	Scenario: The Hill chart of task is not shown (Error Flow) 
 		When I request to show Hill chart of To-do tasks 
-		But no Hill chart has created for To-Do list
+		But no Hill chart has been created for To-Do list
 		Then I see a warning message "No Hill chart to show"

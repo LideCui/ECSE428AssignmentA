@@ -1,5 +1,6 @@
 Feature: ID19_Reply to comments for pitched message on Message Board
 	
+	User Stories:	
 	As a Project Leader
 	I want to be able to reply comments for the pitched message
 	So I can answer project members questions about pitched message
@@ -16,6 +17,6 @@ Feature: ID19_Reply to comments for pitched message on Message Board
 		
 	Scenario: I fail to reply to comments on the Pitch because I add a blank comment (Error Flow)
 		When I request to add a comment to the pitched message 
-		And I don’t input my comment
+		But I do not input my comment
 		Then the comment is not added to the Epic
 		And I see a error message saying "Blank comments can’t be added to an pitched message"
