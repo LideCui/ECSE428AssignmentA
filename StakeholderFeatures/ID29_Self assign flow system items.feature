@@ -9,7 +9,7 @@ Feature: ID29_Self assign flow system items
     Background:
         Given the team member is logged in
         And is assigned to at least one project
-        And the page of the flow system of one of those projects is open
+        And a page which displays the flow system of one of those projects is open
 
 
     Scenario Outline: (Normal Flow) Assigning to oneself an item in the selected section without exceeding personal WIP amount
@@ -18,7 +18,7 @@ Feature: ID29_Self assign flow system items
         And the item with name <ItemName> has no current assignee
         And the team member has a personal work in progress limit of <PersLimit>
         And the team member has a current work in progress of <CurWIP>
-        When the team member clicks the button “Self assign” on the item
+        When the team member requests to self assign the item
         Then The item shall have an assignee with the name <Name>
         Examples:
             | Name    | ItemName | PersLimit | CurWIP |
@@ -32,7 +32,7 @@ Feature: ID29_Self assign flow system items
         And the item with name <ItemName> is in the <Column> column of the flow system
         And the team member has a personal work in progress limit of <PersLimit>
         And the team member has a current work in progress of <CurWIP>
-        When the team member clicks the button “Self assign” on the item
+        When the team member requests to self assign the item
         Then The team member with name <Name> shall receive an error message
         Examples:
             | Name    | ItemName | PersLimit | CurWIP | Column       |
@@ -46,7 +46,7 @@ Feature: ID29_Self assign flow system items
         And the item with name <ItemName> has no current assignee
         And the team member has a personal work in progress limit of <PersLimit>
         And the team member has a current work in progress of <CurWIP>
-        When the team member clicks the button “Self assign” on the item
+        When the team member requests to self assign the item
         Then The team member with name <Name> shall receive an error message
         Examples:
             | Name    | ItemName | PersLimit | CurWIP |

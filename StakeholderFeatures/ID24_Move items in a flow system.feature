@@ -14,7 +14,7 @@ Feature: ID24_Move items in a flow system
 
     Scenario Outline: (Normal Flow) Moving an item in the flow system from one column to another with sufficient permission
         Given the work in progress limit is not reached
-        When the team member tries to drag and drop an item named <ItemName> from <FirstColumnName> to <FinalColumnName>
+        When the team member tries put an item named <ItemName> from <FirstColumnName> to <FinalColumnName>
         And it is <IsTeamLeader> that team member is a team leader
         Then the project's flow system should not have an item named <ItemName> in the column <FirstColumnName>
         And the project's flow system should have an item named <ItemName> in the column <FinalColumnName>
@@ -99,7 +99,7 @@ Feature: ID24_Move items in a flow system
             | False        | item76   | Acceptance          | Development Ready   |
 
     Scenario Outline: (Alternative Flow) Moving an item in the flow system from one column back to it
-        When the team member tries to drag and drop an item named <ItemName> from <FirstColumnName> but puts it back
+        When the team member tries to put an item named <ItemName> from <FirstColumnName> but puts it back
         Then the project's flow system should have an item named <ItemName> in the column <FirstColumnName>
 
         Examples:
@@ -110,7 +110,7 @@ Feature: ID24_Move items in a flow system
 
 
     Scenario Outline: (Error Flow) Moving an item in the flow system from one column to an incorrect place
-        When the team member tries to drag and drop an item named <ItemName> from <FirstColumnName> but puts it back
+        When the team member tries to put an item named <ItemName> from <FirstColumnName> but puts it back
         Then the project's flow system should have an item named <ItemName> in the column <FirstColumnName>
         And the project's flow system should not have an item named <ItemName> in the column <FinalColumnName>
         And the team member should receive an error message
@@ -123,7 +123,7 @@ Feature: ID24_Move items in a flow system
 
     Scenario Outline: (Error Flow) Moving an item into the work in progress section when the limit is already reached
         Given the team member is a team leader
-        When the team member tries to drag and drop an item <ItemName> which is in column <FirstColumnName>
+        When the team member tries to put an item <ItemName> which is in column <FirstColumnName>
         which is not in a column of the work in progress section  into a column <FinalColumnName>
         which is part of the work in progress section
         And there are <NbItem> items in the work in progress section

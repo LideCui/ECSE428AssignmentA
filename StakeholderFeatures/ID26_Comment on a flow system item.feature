@@ -12,9 +12,9 @@ Feature: ID27_Comment on a flow system item
     Scenario Outline: (Normal Flow) Comments on an item with a correct amount of characters
         Given the flow system contains an item named <Item>
         And that item has the comments <Comments>
-        When the team member clicks the button “Comment” on the item
-        And writes a comment <NewComment> less than 2048 characters and more than 0 characters long in the new window
-        And clicks the “Send” button of the new window
+        When the team member requests to comment on the item
+        And writes a comment <NewComment> less than 2048 characters and more than 0 characters long
+        And requests to confirm his action
         Then the item will have the comments <FinalComments>
 
         Examples:
@@ -26,9 +26,9 @@ Feature: ID27_Comment on a flow system item
     Scenario Outline: (Alternative Flow) Comments on an item with a correct amount of characters but quits rather than sending
         Given the flow system contains an item named <Item>
         And that item has the comments <Comments>
-        When the team member clicks the button “Comment” on the item
+        When the team member requests to comment on the item
         And writes a comment <NewComment> less than 2048 characters and more than 0 characters long in the new window
-        And clicks the “Quit” button of the new window
+        And requests to abort his action
         Then the item will still only have the comments <Comments>
 
         Examples:
@@ -40,9 +40,9 @@ Feature: ID27_Comment on a flow system item
     Scenario Outline: (Error Flow) Comments on an item with an incorrect amount of characters
         Given the flow system contains an item named <Item>
         And that item has the comments <Comments>
-        When the team member clicks the button “Comment” on the item
+        When the team member requests to comment on the item
         And writes a comment that is 0 characters in length in the new window
-        And clicks the “Send” button of the new window
+        And requests to confirm his action
         Then the team member receives an error message
         And the item will still only have the comments <Comments>
 
@@ -56,9 +56,9 @@ Feature: ID27_Comment on a flow system item
     Scenario Outline: (Error Flow) Comments on an item with an incorrect amount of characters
         Given the flow system contains an item named <Item>
         And that item has the comments <Comments>
-        When the team member clicks the button “Comment” on the item
+        When the team member requests to comment on the item
         And writes a comment that is more than 2048 characters in length in the new window
-        And clicks the “Send” button of the new window
+        And requests to confirm his action
         Then the team member receives an error message
         And the item will still only have the comments <Comments>
 

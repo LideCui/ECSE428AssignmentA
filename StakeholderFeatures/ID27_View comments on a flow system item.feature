@@ -12,7 +12,7 @@ Feature: ID27_View comments on a flow system item
     Scenario Outline: (Normal Flow) Viewing comments on an item that has comments
         Given the flow system contains an item named <Item>
         And that item has the comments <Comments>
-        When the team member clicks the button “View comments” on the item
+        When the team member requests to view the comments of the item
         Then the comments <Comments> and only them should be displayed
 
         Examples:
@@ -25,7 +25,7 @@ Feature: ID27_View comments on a flow system item
     Scenario Outline: (Normal Flow) Viewing comments on an item that does not have comments
         Given the flow system contains an item named <Item>
         And that item has the comments <Comments>
-        When the team member clicks the button “View comments” on the item
+        When the team member requests to view the comments of on the item
         Then A message stating there is no comments should be displayed
 
         Examples:

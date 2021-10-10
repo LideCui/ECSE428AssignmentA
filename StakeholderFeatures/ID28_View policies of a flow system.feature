@@ -8,11 +8,11 @@ Feature: ID28_View policies of a flow system
 
     Background:
         Given the team member is logged in
-        And the page of the flow system of a project to which the team member is assigned is open
+        And a page which displays the flow system of a project to which the team member is assigned is open
 
     Scenario Outline: (Normal Flow) Viewing policies on a column that has policies
         Given the column <Column> has policies <Policies>
-        When the team member clicks the button “View policies” on the column <Column>
+        When the team member requests to view policies of the column <Column>
         Then the policies <Policies> should be displayed
         Examples:
             | Column       | Policies                                                             |
@@ -22,7 +22,7 @@ Feature: ID28_View policies of a flow system
 
     Scenario Outline: (Alternative Flow) Viewing policies on a column that has no policies
         Given the column <Column> has no policies
-        When the team member clicks the button “View policies” on the column <Column>
+        When the team member requests to view policies of the column <Column>
         Then the team member receives a message that there are no policies
 
         Examples:

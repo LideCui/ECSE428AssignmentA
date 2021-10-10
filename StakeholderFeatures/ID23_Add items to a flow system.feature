@@ -13,10 +13,10 @@ Feature: ID23_Add items to a flow system
 
     Scenario Outline: (Normal Flow) Adding an idea to the flow system with confirmation and name
         Given flow system “Pool of Ideas” column has items with names <Ideas>
-        When the team member clicks the button “Add idea”
+        When the team member requests to add an idea
         And the “add an idea” page is displayed
         And the team member enters an idea with name <NewIdea> which is not part of <Ideas>
-        And clicks the “confirm” button
+        And requests to confirm his action
         Then the flow system of the project should only have items with names <IdeasAfter> in its “Pool of Ideas” column
         Examples:
             | Ideas             | NewIdea | IdeasAfter               |
@@ -27,10 +27,10 @@ Feature: ID23_Add items to a flow system
 
     Scenario Outline: (Alternative Flow) Adding an idea to the flow system without confirming
         Given flow system “Pool of Ideas” column has items with names <Ideas>
-        When the team member clicks the button “Add idea”
+        When the team member requests to add an idea
         And the “add an idea” page is displayed
         And the team member enters an idea with name <NewIdea> which is not part of <Ideas>
-        And clicks the “quit” button
+        And requests to abort his action
         Then the flow system of the project should only have items with names <IdeasAfter> in its “Pool of Ideas” column
 
         Examples:
@@ -42,10 +42,10 @@ Feature: ID23_Add items to a flow system
 
     Scenario Outline: (Error Flow) Adding an idea to the flow system which already has an idea of the same name
         Given flow system “Pool of Ideas” column has items with names <Ideas>
-        When the team member clicks the button “Add idea”
+        When the team member requests to add an idea
         And the “add an idea” page is displayed
         And the team member enters an idea with name <NewIdea> which is part of <Ideas>
-        And clicks the “confirm” button
+        And requests to confirm his action
         Then the team member should get an error message
         And the flow system of the project should only contain items with names <IdeasAfter>
         And the flow system of the project should have <NbIdea> iems in its “Pool of Ideas” column
@@ -58,9 +58,9 @@ Feature: ID23_Add items to a flow system
 
     Scenario Outline: (Error Flow) Adding an idea to the flow system without a name
         Given flow system “Pool of Ideas” column has items with names <Ideas>
-        When the team member clicks the button “Add idea”
+        When the team member requests to add an idea
         And the “add an idea” page is displayed
-        And the team member clicks the “confirm” button
+        And the team member requests to confirm his action
         Then the team member should get an error message
         And the flow system of the project should only contain items with names <IdeasAfter>
         And the flow system of the project should have <NbIdea> iems in its “Pool of Ideas” column

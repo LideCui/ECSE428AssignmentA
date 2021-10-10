@@ -10,8 +10,8 @@ Feature: ID21_View all projects
 
     Scenario Outline: (Normal Flow) Viewing assigned projects
         Given the team member is assiged to the projects <AssignedProjects>
-        When the team member clicks the button “My projects”
-        Then the “My projects” page should be displayed
+        When the team member requests to view his assigned projects
+        Then a page should be displayed
         And it contains only the projects whose names are part of <DisplayedProjects>
 
         Examples:
