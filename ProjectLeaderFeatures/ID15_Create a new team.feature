@@ -3,7 +3,7 @@ Feature: ID15_Create a new team
 	User Stories:	
 	As a Project Leader
 	I want to be able to create a new team 
-	So that the members can collaborate using 
+	So that the members can collaborate and communicate through the team section 
 	
 	Background:
 		Given that the Project leader is logged in

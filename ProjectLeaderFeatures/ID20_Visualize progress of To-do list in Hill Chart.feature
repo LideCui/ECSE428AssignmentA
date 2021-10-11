@@ -3,7 +3,7 @@ Feature: ID20_Visualize progress of To-do list in Hill Chart
 	User Stories:	
 	As a Project Leader
 	I want to be able to see the progress of To-do tasks in Hill Chart 
-	So that I can track the progress of the project.
+	So that I can track the progress of the project
 	
 	Background:
 		Given I am a Project Leader

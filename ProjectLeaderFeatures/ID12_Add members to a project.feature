@@ -17,19 +17,20 @@ Feature: ID11_Add members to a project
 			| Member       | member@gmail.com      |
 			| Other Member | othermember@gmail.com |
 		
-	Scenario: A new member fails to be added because the email is not entered (Error Flow)
+	Scenario: A new member fails to be added because the email is invalid (Error Flow)
 		When I request to add a member to the project
 		And I enter the member valid name <name>
-		But I do not input a valid email <input_email>
+		But I enter an invalid email <email>
 		Then the email containing an invitation link to Basecamp project should not be sent to the person
 		And I should see the error message "Make sure you’ve provided a name and email for all new people."
-			| name | input_email |
-  			| test | invalidemail|
+			| name         | email                 |
+			| wrong        | wrong@gmail           |
+			| Other        | invalid email         |
 			
 	Scenario: A new member fails to be added because the name is not entered (Error Flow)
 		When I request to add a member to the project
 		And I enter the member valid email <email>
-		But I do not input a name
+		But I do not input a name <name>
 		Then the email containing an invitation link to Basecamp project should not be sent to the person
 		And I should see the error message "Make sure you’ve provided a name and email for all new people."
 		

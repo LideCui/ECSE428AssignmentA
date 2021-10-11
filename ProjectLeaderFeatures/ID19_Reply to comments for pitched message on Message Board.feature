@@ -3,7 +3,7 @@ Feature: ID19_Reply to comments for pitched message on Message Board
 	User Stories:	
 	As a Project Leader
 	I want to be able to reply comments for the pitched message
-	So I can answer project members questions about pitched message
+	So that I can answer project members questions about pitched message
 	
 	Background:
 		Given I am a Project Leader of the project 

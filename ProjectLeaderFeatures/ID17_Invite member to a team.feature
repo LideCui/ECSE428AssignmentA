@@ -1,5 +1,6 @@
 Feature: ID17_Invite member to a team
 	
+	User Stories:	
 	As a Project Leader
 	I would like to invite a member to the team
 	So that members can collaborate and communicate through the team section	
@@ -9,7 +10,7 @@ Feature: ID17_Invite member to a team
 		And that the team has been created
 	
 	Scenario Outline: A new member is successfully added to the team (Normal Flow)
-		When I enter the member valid name <name> and email <email>
+		When I enter the member valid name <name> and corresponding email <email>
 		And I request to add the member to the team
 		Then an email containing an invitation link to Basecamp team is sent to the person
 			| name         | email                 |
@@ -17,24 +18,23 @@ Feature: ID17_Invite member to a team
 			| Other Member | othermember@gmail.com |
 			
 	Scenario: A new member fails to be added to the team because the email is not entered (Error Flow)
-		When I access the members of the team with name <name> and key <key>
-		And I enter the member valid name <name>
-		But I don't input a valid email <input_email>
+		When I enter the member valid name <name>
+		But I don't input a valid email <email>
+		And I request to add the member to the team
 		Then the email containing an invitation link to Basecamp team should not be sent to the person
 		And I should see the error message "Make sure you’ve provided a name and email for all new people."
-			| name | input_email |
+			| name | email       |
   			| test | invalidemail|
   			
 	Scenario: A new member fails to be added to the team because the name is not entered (Error Flow)
-		When I access the members of the team with name <name> and key <key>
-		And I enter the member valid email <email>
-		But I do not input a name
+		When I enter the member valid email <email>
+		But I do not input a name		
 		And I request to add the member to the team 
 		Then the email containing an invitation link to Basecamp team should not be sent to the person
 		And I should see the error message "Make sure you’ve provided a name and email for all new people."
 		
 	Scenario: A new member fails to be added because they are already a member of the team (Error Flow)
 		Given member with name <name> and email <email> already exists
-		When I access the members of the team with name <name> and key <key>	
-		And I try to add a member with name <name> and corresponding email <email> 
+		When I enter the member valid name <name> and corresponding email <email>
+		And I request to add the member to the team
 		Then the email containing an invitation link to Basecamp team should not be sent to the person
