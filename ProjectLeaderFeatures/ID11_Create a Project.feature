@@ -8,12 +8,12 @@ Feature: ID11_Create a Project
     Background:
 		Given that the Project leader is logged in
 	
-    Scenario Outline: I successfully create a new project (Normal Flow)
+    Scenario Outline: (Normal Flow) I successfully create a new project
 		When I request to add a new project
 		And I assign a project name <name>
 		Then the project should be successfully created in the system
 	
-    Scenario: I don't successfully create a project because I input an invalid name (Error Flow)
+    Scenario: (Error Flow) I don't successfully create a project because I input an invalid name
 		When I request to add a new project
 		And I do not assign a project name
 		Then the project should not be created in the system

@@ -11,13 +11,13 @@ Feature: ID13_Remove members to a project
 	        | name    | key  |
             | Project | PROJ |
 	
-	Scenario Outline: I successfully remove a member from the project (Normal Flow)
-		When I access the members of the project with name <name> and key <key>
+	Scenario Outline:(Normal Flow) I successfully remove a member from the project 
+		When I access the members of the project with name <name>
 		And I request to remove the member 
 		Then the member should be successfully removed from the project
 	
-	Scenario: I fail to remove a member from the project because no members are in the project (Error Flow)
-		When I access the members of the project
+	Scenario: (Error Flow) I fail to remove a member from the project because no members are in the project 
+		When I access the members of the project  with name <name>
 		And I request to remove a member 
 		But I am the only member of the project
 		Then I fail to remove a member
