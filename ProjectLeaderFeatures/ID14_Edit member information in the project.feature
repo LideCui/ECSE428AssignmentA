@@ -11,13 +11,13 @@ Feature: ID14_Edit member information in the project
 	        | name    | key  |
             | Project | PROJ |
 	
-	Scenario Outline: I successfully edit a member information (Normal Flow)
-		When I access the members of the project with name <name> and key <key>
+	Scenario Outline: (Normal Flow) I successfully edit a member information 
+		When I access the members of the project with name <name>
 		And I request to edit the member title informations
 		Then the member's information should be successfully edited
 		
-	Scenario: I fail to edit a member information because I am not the Admin (Error Flow)
-		When I access the members of the project with name <name> and key <key>
+	Scenario: (Error Flow) I fail to edit a member information because I am not the Admin
+		When I access the members of the project with name <name> 
 		But I am not the Admin
 		And I request to edit a member information
 		Then member information should not be edited

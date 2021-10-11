@@ -11,7 +11,7 @@ Feature: ID16_Edit a team
 		    | teamName    | key  |
             | Team        | TEAM |
 	
-	Scenario Outline: I successfully edit the team (Normal Flow)
-		When I access the team with name <name> and key <key>
+	Scenario Outline: (Normal Flow) I successfully edit the team
+		When I access the team with name <teamName>
 		And I request to edit the team's name and description
 		Then the team should be successfully edited in the system
